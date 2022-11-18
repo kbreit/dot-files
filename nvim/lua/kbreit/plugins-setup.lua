@@ -96,6 +96,9 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
 
+  -- file types
+  use("nathom/filetype.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
