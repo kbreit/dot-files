@@ -38,6 +38,9 @@ return packer.startup(function(use)
 	use("tpope/vim-surround")
 	use("vim-scripts/ReplaceWithRegister")
 
+	-- improved buffer and split management
+	use('mrjones2014/smart-splits.nvim')
+
 	-- commenting with gc
 	use("numToStr/Comment.nvim")
 

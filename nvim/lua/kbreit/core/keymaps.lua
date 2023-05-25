@@ -40,3 +40,8 @@ keymap.set("n", "<leader>ftt", "<cmd>FloatermToggle<cr>")
 keymap.set("n", "<leader>ftn", "<cmd>FloatermNext<cr>")
 keymap.set("n", "<leader>ftp", "<cmd>FloatermPrev<cr>")
 
+-- smart-splits
+keymap.set("n", "<A-h>", require("smart-splits").resize_left)
+keymap.set("n", "<A-j>", require("smart-splits").resize_down)
+keymap.set("n", "<A-k>", require("smart-splits").resize_up)
+keymap.set("n", "<A-l>", require("smart-splits").resize_right)
