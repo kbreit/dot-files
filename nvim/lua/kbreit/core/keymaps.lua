@@ -1,47 +1,30 @@
+-- set leader key to space
 vim.g.mapleader = " "
 
-local keymap = vim.keymap
+local keymap = vim.keymap -- for conciseness
 
--- general keymap
-keymap.set("i", "jk", "<ESC>")
-keymap.set("n", "<leader>nh", ":nohl<CR>")
-keymap.set("n", "x", '"_x')
-keymap.set("n", "<leader>db", ":b#<bar>bd#<CR>")
+---------------------
+-- General Keymaps -------------------
 
--- window splits
-keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=") -- make split equal width
-keymap.set("n", "<leader>sx", ":close<CR>") -- close split
+-- clear search highlights
+keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
--- tabs
-keymap.set("n", "<leader>to", ":tabnew<CR>") -- new tab
-keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close tab
-keymap.set("n", "<leader>tn", ":tabn<CR>") -- next tab
-keymap.set("n", "<leader>tp", ":tabp<CR>") -- previous tab
+-- delete single character without copying into register
+-- keymap.set("n", "x", '"_x')
 
--- plugin keymaps
--- maximizer
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
+-- increment/decrement numbers
+keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
+keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
--- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
--- telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+-- window management
+keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
+keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
--- floaterm
-keymap.set("n", "<leader>fto", "<cmd>FloatermNew<cr>")
-keymap.set("n", "<leader>ftt", "<cmd>FloatermToggle<cr>")
-keymap.set("n", "<leader>ftn", "<cmd>FloatermNext<cr>")
-keymap.set("n", "<leader>ftp", "<cmd>FloatermPrev<cr>")
-
--- smart-splits
-keymap.set("n", "<A-h>", require("smart-splits").resize_left)
-keymap.set("n", "<A-j>", require("smart-splits").resize_down)
-keymap.set("n", "<A-k>", require("smart-splits").resize_up)
-keymap.set("n", "<A-l>", require("smart-splits").resize_right)
+keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
+keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
+keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
