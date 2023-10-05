@@ -23,7 +23,7 @@ return {
         "html",
         "css",
         "markdown",
-        "markdown-inline",
+        "markdown_inline",
         "lua",
         "vim",
         "dockerfile",
