@@ -56,6 +56,7 @@ return {
       },
       sections = {
         lualine_x = {
+          { "searchcount" },
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
