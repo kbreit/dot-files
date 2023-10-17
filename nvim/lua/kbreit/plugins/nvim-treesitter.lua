@@ -30,6 +30,7 @@ return {
         "gitignore",
         "python",
         "hcl",
+        "terraform",
       },
       incremental_section = {
         enable = true,
