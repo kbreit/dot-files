@@ -55,6 +55,9 @@ return {
         theme = my_lualine_theme,
       },
       sections = {
+        lualine_a = {
+          { "buffers" },
+        },
         lualine_x = {
           { "searchcount" },
           {
