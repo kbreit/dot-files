@@ -33,3 +33,4 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- buffers
 keymap.set("n", "<leader>bp", "<cmd>bp<CR>", { desc = "Switch to previous buffer" })
 keymap.set("n", "<leader>bn", "<cmd>bn<CR>", { desc = "Switch to next buffer" })
+keymap.set("n", "<leader>bd", "<cmd>bn<CR>", { desc = "Close current buffer" })
