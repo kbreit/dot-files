@@ -1,8 +1,9 @@
 return {
-  "bluz71/vim-nightfly-guicolors",
+  "catppuccin/nvim",
+  name = "catppuccin",
   priority = 1000,
   config = function()
     -- load the colorscheme here
-    vim.cmd([[colorscheme nightfly]])
+    vim.cmd([[colorscheme catppuccin]])
   end,
 }
