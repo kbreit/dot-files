@@ -8,3 +8,11 @@ disabled = true
 
 [gcloud]
 disabled = true
+
+[direnv]
+disabled = false
+
+[localip]
+ssh_only = false
+format = '@[$localipv4](bold red) '
+disabled = false
