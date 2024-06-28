@@ -9,6 +9,7 @@ packages=(
   fd
   ripgrep
   lazygit
+  npm
 )
 
 for package in "${packages[@]}"; do
