@@ -31,6 +31,7 @@ return {
         "python",
         "hcl",
         "terraform",
+        "vimdoc",
       },
       incremental_section = {
         enable = true,
