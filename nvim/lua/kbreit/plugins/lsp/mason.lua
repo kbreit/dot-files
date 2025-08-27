@@ -30,7 +30,7 @@ return {
         "ansiblels",
         "html",
         "lua_ls",
-        "pyright",
+        -- "pyright",
         "terraformls",
         "tflint",
         "yamlls",
@@ -45,7 +45,6 @@ return {
         "stylua", -- lua formatter
         "isort", -- python formatter
         "ansible-lint", -- ansible linter
-        "black", -- python formatter
         "pylint", -- python linter
         "eslint_d", -- js linter
       },
