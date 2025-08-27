@@ -2,7 +2,6 @@ ansible
 aom
 awscli
 azure-cli
-azwi
 bash
 bat
 brotli
@@ -27,8 +26,6 @@ gdk-pixbuf
 gettext
 gh
 giflib
-gitsign
-gitsign-credential-cache
 glib
 go
 graphite2

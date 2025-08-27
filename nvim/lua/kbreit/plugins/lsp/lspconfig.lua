@@ -77,7 +77,7 @@ return {
     })
 
     -- configure python server
-    lspconfig["pyright"].setup({
+    lspconfig["ruff"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
