@@ -6,9 +6,6 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
-    -- import lspconfig plugin
-    local lspconfig = require("lspconfig")
-
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -70,49 +67,39 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    -- configure html server
-    lspconfig["html"].setup({
+    -- Default config for all servers
+    local default_config = {
       capabilities = capabilities,
       on_attach = on_attach,
-    })
+    }
 
-    -- configure python server
-    lspconfig["ruff"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    -- configure LSP servers with default configuration
+    vim.lsp.config("html", default_config)
+    vim.lsp.config("ruff", default_config)
+    vim.lsp.config("ansiblels", default_config)
+    vim.lsp.config("terraformls", default_config)
+    vim.lsp.config("lua_ls", default_config)
 
-    -- configure ansible server
-    lspconfig["ansiblels"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure terraform server
-    lspconfig["terraformls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure lua server (with special settings)
-    lspconfig["lua_ls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = { -- custom settings for lua
-        Lua = {
-          -- make the language server recognize "vim" global
-          diagnostics = {
-            globals = { "vim" },
-          },
-          workspace = {
-            -- make language server aware of runtime files
-            library = {
-              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-              [vim.fn.stdpath("config") .. "/lua"] = true,
+    -- configure LUA language server with custom settings
+    vim.lsp.config(
+      "lua_ls",
+      vim.tbl_deep_extend("force", default_config, {
+        settings = {
+          Lua = {
+            -- make the language server recognize "vim" global
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              -- make language server aware of runtime files
+              library = {
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.stdpath("config") .. "/lua"] = true,
+              },
             },
           },
         },
-      },
-    })
+      })
+    )
   end,
 }
