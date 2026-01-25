@@ -4,8 +4,15 @@ return {
   lazy = false,
   opts = {
     bufdelete = { enabled = true },
+    dashboard = { enabled = true },
   },
   keys = {
-    { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete buffer (keep split)" },
+    {
+      "<leader>bd",
+      function()
+        Snacks.bufdelete()
+      end,
+      desc = "Delete buffer (keep split)",
+    },
   },
 }
