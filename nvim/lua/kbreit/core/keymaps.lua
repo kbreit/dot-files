@@ -33,7 +33,7 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- buffers
 keymap.set("n", "<leader>bp", "<cmd>bp<CR>", { desc = "Switch to previous buffer" })
 keymap.set("n", "<leader>bn", "<cmd>bn<CR>", { desc = "Switch to next buffer" })
-keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "Close current buffer" })
+-- <leader>bd is defined in snacks.lua (deletes buffer without closing split)
 
 -- quickfix
 keymap.set("n", "<leader>qn", "<cmd>cnext<CR>", { desc = "Next quickfix item" })
