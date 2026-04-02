@@ -8,7 +8,7 @@ WALLPAPER_DIR="$HOME/Documents/Wallpaper"
 # Map workspace number to wallpaper filename
 declare -A WALLPAPERS=(
     [1]="373.png"
-    [2]="374.png"
+    [2]="374.jpeg"
 )
 
 DEFAULT_WALLPAPER="$WALLPAPER_DIR/373.png"
