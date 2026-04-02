@@ -13,6 +13,11 @@ declare -A WALLPAPERS=(
 
 DEFAULT_WALLPAPER="$WALLPAPER_DIR/373.png"
 
+# Wait for hyprpaper IPC to be ready
+until hyprctl hyprpaper listloaded >/dev/null 2>&1; do
+    sleep 0.5
+done
+
 # Preload all wallpapers
 for ws in "${!WALLPAPERS[@]}"; do
     hyprctl hyprpaper preload "$WALLPAPER_DIR/${WALLPAPERS[$ws]}"
