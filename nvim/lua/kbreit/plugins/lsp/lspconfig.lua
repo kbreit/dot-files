@@ -60,18 +60,20 @@ return {
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
     -- Change the Diagnostic symbols in the sign column (gutter)
-    -- (not in youtube nvim video)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.diagnostic.config({
-        signs = {
-          text = icon,
-          texthl = hl,
-          numhl = "",
-        },
-      })
+    local sign_icons = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+    local sign_text = {}
+    local sign_texthl = {}
+    for type, icon in pairs(sign_icons) do
+      local severity = vim.diagnostic.severity[type:upper()]
+      sign_text[severity] = icon
+      sign_texthl[severity] = "DiagnosticSign" .. type
     end
+    vim.diagnostic.config({
+      signs = {
+        text = sign_text,
+        texthl = sign_texthl,
+      },
+    })
 
     -- Default config for all servers
     local default_config = {
@@ -85,6 +87,7 @@ return {
     vim.lsp.config("ansiblels", default_config)
     vim.lsp.config("terraformls", default_config)
     vim.lsp.config("lua_ls", default_config)
+    vim.lsp.config("ts_ls", default_config)
 
     -- configure LUA language server with custom settings
     vim.lsp.config(

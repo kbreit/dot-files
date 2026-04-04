@@ -6,16 +6,22 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        python = { "isort", "ruff_format" },
+        python = { "ruff_organize_imports", "ruff_format" },
         lua = { "stylua" },
         markdown = { "prettier" },
         yaml = { "prettier" },
       },
-      format_on_save = {
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 500,
-      },
+      format_on_save = function(bufnr)
+        local path = vim.api.nvim_buf_get_name(bufnr)
+        if path:match("/templates/.*%.ya?ml$") then
+          return nil
+        end
+        return {
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 500,
+        }
+      end,
     })
 
     vim.keymap.set({ "n", "v" }, "<leader>mp", function()
