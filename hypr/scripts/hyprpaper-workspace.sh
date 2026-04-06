@@ -7,11 +7,16 @@ WALLPAPER_DIR="$HOME/Documents/Wallpaper"
 
 # Map workspace number to wallpaper filename
 declare -A WALLPAPERS=(
-    [1]="373.png"
+    [1]="376.png"
     [2]="374.jpeg"
+    [3]="375.jpeg"
 )
 
 DEFAULT_WALLPAPER="$WALLPAPER_DIR/373.png"
+
+# Wait for hyprpaper to be ready
+HYPRPAPER_SOCK="$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.hyprpaper.sock"
+until [[ -S "$HYPRPAPER_SOCK" ]]; do sleep 0.1; done
 
 # Preload all wallpapers
 for ws in "${!WALLPAPERS[@]}"; do
