@@ -3,16 +3,13 @@
 # Per-workspace wallpaper switcher for a single monitor.
 # Listens to Hyprland's event socket and swaps wallpapers on workspace change.
 
-WALLPAPER_DIR="$HOME/Documents/Wallpaper"
-
-# Map workspace number to wallpaper filename
-declare -A WALLPAPERS=(
-    [1]="376.png"
-    [2]="374.jpeg"
-    [3]="375.jpeg"
-)
-
-DEFAULT_WALLPAPER="$WALLPAPER_DIR/373.png"
+WALLPAPERS_LOCAL="${XDG_DATA_HOME:-$HOME/.local/share}/hypr/wallpapers.local"
+if [[ ! -f "$WALLPAPERS_LOCAL" ]]; then
+    echo "Error: wallpaper config not found at $WALLPAPERS_LOCAL" >&2
+    exit 1
+fi
+# shellcheck source=/dev/null
+source "$WALLPAPERS_LOCAL"
 
 # Wait for hyprpaper to be ready
 HYPRPAPER_SOCK="$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.hyprpaper.sock"
